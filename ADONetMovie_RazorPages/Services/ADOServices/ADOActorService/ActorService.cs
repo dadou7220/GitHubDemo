@@ -21,7 +21,7 @@ namespace ADONetMovie_RazorPages.Services
         // dadou && math
         public IEnumerable<Actor> GetActors()
         {
-            return null;
+            return actorService.GetActors().ToList();
         }
 
         // math
