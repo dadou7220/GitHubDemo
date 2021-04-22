@@ -32,7 +32,7 @@ namespace ADONetMovie_RazorPages.Services
         //dadou
         public void DeleteActor(Actor actor)
         {
-            //
+            // I am not able to implement the delete functionality
         }
     }
 }
