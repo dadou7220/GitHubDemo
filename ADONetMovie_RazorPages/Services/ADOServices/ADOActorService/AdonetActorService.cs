@@ -12,11 +12,37 @@ namespace ADONetMovie_RazorPages.Services
     public class AdonetActorService
     {
 
-        //user story1: implement GetActors() : dadou
+        private IConfiguration configuration { get; }
+        string connectionString;
+        public AdonetActorService(IConfiguration config)
+        {
+            configuration = config;
+            connectionString = configuration.GetConnectionString("CinemaContext");
+        }
 
-
-
-
+        public List<Actor> GetActors()
+        {
+            List<Actor> lst = new List<Actor>();
+            string sql = "Select * From Actor ";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sql, connection);
+                using (SqlDataReader dataReader = command.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        Actor actor = new Actor();
+                        actor.Id = Convert.ToInt32(dataReader["Id"]);
+                        actor.Name = Convert.ToString(dataReader["Name"]);
+                        actor.Birth_year = Convert.ToDateTime(dataReader["Birth_year"]);
+                        actor.Country = Convert.ToString(dataReader["Country"]);
+                        lst.Add(actor);
+                    }
+                }
+            }
+            return lst;
+        }
 
         
         
@@ -29,7 +55,7 @@ namespace ADONetMovie_RazorPages.Services
 
 
 
-        
+
     }
 }
 
