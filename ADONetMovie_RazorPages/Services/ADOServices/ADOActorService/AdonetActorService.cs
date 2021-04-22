@@ -44,12 +44,31 @@ namespace ADONetMovie_RazorPages.Services
             return lst;
         }
 
-        
-        
-        
-        
-        // user story2: implement GetActorById(int id):math
 
+        // user story2: implement GetActorById(int id):math
+        public Actor GetActorById(int aid)
+        {
+            Actor actor = new Actor();
+            string sql = "Select * From Actor  where Id=@id ";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@id", aid);
+                using (SqlDataReader dataReader = command.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        actor.Id = Convert.ToInt32(dataReader["Id"]);
+                        actor.Name = Convert.ToString(dataReader["Name"]);
+                        actor.Country = Convert.ToString(dataReader["Country"]);
+                        actor.Birth_year = Convert.ToDateTime(dataReader["Birth_year"]);
+                        actor.Alive = Convert.ToBoolean(dataReader["Alive"]);
+                    }
+                }
+                return actor;
+            }
+        }
 
 
 
