@@ -20,18 +20,18 @@ namespace ADONetMovie_RazorPages.Services
         // dadou && math
         public IEnumerable<Actor> GetActors()
         {
-            return actorService.GetActors().ToList();
+            return actorService.GetActors();
         }
         // math
         public Actor GetActorById(int id)
         {
             return  actorService.GetActorById(id);
         }
-
         //dadou
         public void DeleteActor(Actor actor)
         {
-            // I am not able to implement the delete functionality
+            actorService.GetActors().Remove(actor);
+
         }
     }
 }
