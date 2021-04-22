@@ -26,7 +26,7 @@ namespace ADONetMovie_RazorPages.Services
         // math
         public Actor GetActorById(int id)
         {
-            return null;
+            return  actorService.GetActorById(id);
         }
 
         //dadou
