@@ -30,7 +30,7 @@ namespace ADONetMovie_RazorPages.Services
         //dadou
         public void DeleteActor(Actor actor)
         {
-            actorService.GetActorById(actor.Id);
+            // another comment
 
         }
     }
