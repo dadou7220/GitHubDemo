@@ -13,7 +13,6 @@ namespace ADONetMovie_RazorPages.Services
      
         private AdonetActorService actorService { get; set; }
         public ActorService(AdonetActorService service)
-
         {
             actorService = service;
         }
@@ -30,8 +29,7 @@ namespace ADONetMovie_RazorPages.Services
         //dadou
         public void DeleteActor(Actor actor)
         {
-            actorService.GetActors().Remove(actor);
-
+            // no implementation
         }
     }
 }
