@@ -11,6 +11,20 @@ namespace ADONetMovie_RazorPages.Services
 {
     public class AdonetActorService
     {
+
+        //user story1: implement GetActors() : dadou
+
+
+
+
+
+        // user story2: implement GetActorById(int id):math
+
+
+
+
+
+
         
     }
 }
