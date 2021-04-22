@@ -22,7 +22,6 @@ namespace ADONetMovie_RazorPages.Services
         {
             return actorService.GetActors().ToList();
         }
-
         // math
         public Actor GetActorById(int id)
         {
